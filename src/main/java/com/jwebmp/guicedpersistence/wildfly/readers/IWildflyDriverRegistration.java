@@ -3,7 +3,6 @@ package com.jwebmp.guicedpersistence.wildfly.readers;
 import com.jboss.wildfly.schema.DatasourceType;
 import com.jboss.wildfly.schema.SubsystemType;
 import com.jboss.wildfly.schema.TransactionIsolationType;
-import com.jwebmp.guicedpersistence.btm.BTMTransactionIsolation;
 import com.jwebmp.guicedpersistence.db.ConnectionBaseInfo;
 import com.oracle.jaxb21.PersistenceUnit;
 
@@ -33,9 +32,8 @@ public interface IWildflyDriverRegistration
 	 */
 	default String translateIsolation(TransactionIsolationType isoType)
 	{
-		return BTMTransactionIsolation.valueOf(isoType.name()
-		                                              .replace("TRANSACTION_", ""))
-		                              .toString();
+		return isoType.name()
+		              .replace("TRANSACTION_", "");
 	}
 
 	default ConnectionBaseInfo loadPoolSettings(ConnectionBaseInfo cbi, DatasourceType xa)

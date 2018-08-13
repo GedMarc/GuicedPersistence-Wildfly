@@ -3,7 +3,6 @@ package com.jwebmp.guicedpersistence.wildfly;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jboss.wildfly.schema.*;
-import com.jwebmp.guicedpersistence.btm.BTMTransactionIsolation;
 import com.jwebmp.guicedpersistence.db.ConnectionBaseInfo;
 import com.jwebmp.guicedpersistence.db.PropertiesConnectionInfoReader;
 import com.jwebmp.guicedpersistence.db.exceptions.NoConnectionInfoException;
@@ -64,7 +63,6 @@ public class WildflyConnectionInfoBuilder
 		String jbossHome = System.getProperty("jboss.server.config.dir");
 		if (jbossHome == null || jbossHome.isEmpty())
 		{
-			WildflyConnectionInfoBuilder.log.log(Level.SEVERE, "Unable to find the server configuration directory. Set system property jboss.server.config.dir");
 			throw new NoConnectionInfoException("Unable to find the server configuration directory. Set system property jboss.server.config.dir");
 		}
 		File standaloneFile = new File(jbossHome + "/" + WildflyConnectionInfoBuilder.standaloneFileName);
@@ -83,7 +81,6 @@ public class WildflyConnectionInfoBuilder
 
 				JSONObject jsonObj = XML.toJSONObject(filtered);
 				String json = String.valueOf(jsonObj);
-				jsonObj = XML.toJSONObject(xml);
 
 				ObjectMapper om = new ObjectMapper();
 				om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
@@ -143,18 +140,39 @@ public class WildflyConnectionInfoBuilder
 		{
 			cbi.setTestQuery(xa.getNewConnectionSql());
 		}
-
-		//	cbi.setEnableJdbc4ConnectionTest(true);
-		//	cbi.setShareTransactionConnections(true);
 		if (xa.getTransactionIsolation() != null)
 		{
 			cbi.setTransactionIsolation(translateIsolation(xa.getTransactionIsolation()).toString());
 		}
-		//cbi.setPreparedStatementCacheSize(50);
-		//cbi.setIgnoreRecoveryFailures(false);
-		//cbi.setAllowLocalTransactions(true);
-		//cbi.setAcquireIncrement(5);
-
+		if (xa.getXaPool() != null)
+		{
+			if (xa.getXaPool()
+			      .getMinPoolSize() != null)
+			{
+				cbi.setMinPoolSize(xa.getXaPool()
+				                     .getMinPoolSize()
+				                     .intValue());
+			}
+			if (xa.getXaPool()
+			      .getMaxPoolSize() != null)
+			{
+				cbi.setMaxPoolSize(xa.getXaPool()
+				                     .getMaxPoolSize()
+				                     .intValue());
+			}
+			if (xa.getXaPool()
+			      .isPrefill() != null)
+			{
+				cbi.setPrefill(xa.getXaPool()
+				                 .isPrefill());
+			}
+			if (xa.getXaPool()
+			      .isUseStrictMin() != null)
+			{
+				cbi.setUseStrictMin(xa.getXaPool()
+				                      .isUseStrictMin());
+			}
+		}
 		cbi.setDriver(xa.getDriver());
 		cbi.setUrl(null);
 		cbi.setXa(true);
@@ -214,36 +232,9 @@ public class WildflyConnectionInfoBuilder
 		throw new NoConnectionInfoException("Unable to determine the XA Driver from the given name " + driver);
 	}
 
-	private BTMTransactionIsolation translateIsolation(TransactionIsolationType isoType)
+	private String translateIsolation(TransactionIsolationType isoType)
 	{
-		return BTMTransactionIsolation.valueOf(isoType.name()
-		                                              .replace("TRANSACTION_", ""));
-	}
-
-	private String getDriverClassForNonXA(String driver)
-	{
-		switch (driver)
-		{
-			case "sqlserver":
-			{
-				return "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-			}
-			case "h2":
-			{
-				return "org.h2.Driver";
-			}
-			case "IBMDB2":
-			{
-				return "com.ibm.as400.access.AS400JDBCDriver";
-			}
-			case "jtds":
-			{
-				return "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-			}
-			default:
-			{
-				throw new NoConnectionInfoException("Unable to determine a driver for the non xa resource");
-			}
-		}
+		return isoType.name()
+		              .replace("TRANSACTION_", "");
 	}
 }

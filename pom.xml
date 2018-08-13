@@ -89,6 +89,7 @@
             <classifier>${jwebmp.runtime.classifier}</classifier>
             <optional>true</optional>
             <type>jar</type>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
