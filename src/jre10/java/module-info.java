@@ -19,7 +19,6 @@ module com.jwebmp.guicedpersistence.wildfly {
 	requires com.jwebmp.logmaster;
 	requires java.logging;
 
-	requires commons.io;
 	requires com.google.common;
 
 	requires json;
