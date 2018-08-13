@@ -25,6 +25,7 @@ public class WildflyConnectionInfoBuilder
 		implements PropertiesConnectionInfoReader
 {
 	private static final Logger log = LogFactory.getLog("WildflyConnectionInfoReader");
+	private static final ServiceLoader<IWildflyDriverRegistration> driverRegistrations = ServiceLoader.load(IWildflyDriverRegistration.class);
 	private static String standaloneFileName = "standalone.xml";
 	/**
 	 * The sub system type
@@ -181,9 +182,8 @@ public class WildflyConnectionInfoBuilder
 
 	private ConnectionBaseInfo getConnectionBaseInfo(SubsystemType ds, DatasourceType xa, String jndiMapping, PersistenceUnit persistenceUnit, ConnectionBaseInfo cbi)
 	{
-		ServiceLoader<IWildflyDriverRegistration> driverRegistrations = ServiceLoader.load(IWildflyDriverRegistration.class);
 		boolean found = false;
-		for (IWildflyDriverRegistration driverRegistration : driverRegistrations)
+		for (IWildflyDriverRegistration driverRegistration : WildflyConnectionInfoBuilder.driverRegistrations)
 		{
 			Matcher matched = driverRegistration.driverPattern()
 			                                    .matcher(xa.getConnectionUrl());
