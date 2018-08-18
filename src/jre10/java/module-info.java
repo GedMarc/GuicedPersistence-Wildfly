@@ -21,7 +21,7 @@ module com.jwebmp.guicedpersistence.wildfly {
 
 	requires com.google.common;
 
-	requires json;
+	requires org.json;
 	requires com.fasterxml.jackson.databind;
 	requires org.apache.commons.io;
 
