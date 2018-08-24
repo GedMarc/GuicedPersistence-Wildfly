@@ -223,7 +223,7 @@ public class DatasourceType
 	{
 		if (connectionProperty == null)
 		{
-			connectionProperty = new ArrayList<ConnectionPropertyType>();
+			connectionProperty = new ArrayList<>();
 		}
 		return this.connectionProperty;
 	}

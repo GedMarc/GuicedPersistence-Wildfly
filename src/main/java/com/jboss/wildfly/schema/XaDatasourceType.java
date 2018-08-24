@@ -117,7 +117,7 @@ public class XaDatasourceType
 	{
 		if (xaDatasourceProperty == null)
 		{
-			xaDatasourceProperty = new ArrayList<XaDatasourcePropertyType>();
+			xaDatasourceProperty = new ArrayList<>();
 		}
 		return this.xaDatasourceProperty;
 	}

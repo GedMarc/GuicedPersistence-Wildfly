@@ -45,7 +45,7 @@ public class WildflyConnectionInfoBuilder
 	@Override
 	public ConnectionBaseInfo populateConnectionBaseInfo(PersistenceUnit unit, Properties filteredProperties, ConnectionBaseInfo cbi)
 	{
-		SubsystemType type = getDatasourceSubsystem();
+		SubsystemType type = WildflyConnectionInfoBuilder.getDatasourceSubsystem();
 
 		IDataSource ds = findDatasource(type, unit.getJtaDataSource());
 		if (XaDatasourceType.class.isAssignableFrom(ds.getClass()))
@@ -59,7 +59,7 @@ public class WildflyConnectionInfoBuilder
 		return cbi;
 	}
 
-	private SubsystemType getDatasourceSubsystem()
+	private static SubsystemType getDatasourceSubsystem()
 	{
 		String jbossHome = System.getProperty("jboss.server.config.dir");
 		if (jbossHome == null || jbossHome.isEmpty())
@@ -143,7 +143,7 @@ public class WildflyConnectionInfoBuilder
 		}
 		if (xa.getTransactionIsolation() != null)
 		{
-			cbi.setTransactionIsolation(translateIsolation(xa.getTransactionIsolation()).toString());
+			cbi.setTransactionIsolation(translateIsolation(xa.getTransactionIsolation()));
 		}
 		if (xa.getXaPool() != null)
 		{

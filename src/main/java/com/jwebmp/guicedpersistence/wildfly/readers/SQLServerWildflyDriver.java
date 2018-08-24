@@ -38,7 +38,6 @@ public class SQLServerWildflyDriver
 		String instanceName = sqlMatch.group(3);
 		String port = sqlMatch.group(4);
 		String database = sqlMatch.group(5);
-		// String s6 = sqlMatch.group(6);
 		cbi.setPort(Strings.emptyToNull(port));
 		cbi.setServerName(Strings.emptyToNull(port));
 		cbi.setInstanceName(Strings.emptyToNull(instanceName));
@@ -50,18 +49,10 @@ public class SQLServerWildflyDriver
 		cbi.setPassword(xa.getSecurity()
 		                  .getPassword());
 
-		//cbi.setEnableJdbc4ConnectionTest(true);
-		//cbi.setShareTransactionConnections(true);
-
 		if (xa.getTransactionIsolation() != null)
 		{
 			cbi.setTransactionIsolation(translateIsolation(xa.getTransactionIsolation()));
 		}
-
-		//cbi.setPreparedStatementCacheSize(50);
-		//cbi.setIgnoreRecoveryFailures(false);
-		//cbi.setAllowLocalTransactions(true);
-		//cbi.setAcquireIncrement(5);
 
 		loadValidation(xa, cbi);
 		cbi = loadPoolSettings(cbi, xa);

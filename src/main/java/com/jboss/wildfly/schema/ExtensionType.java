@@ -68,7 +68,7 @@ public class ExtensionType
 	{
 		if (configProperty == null)
 		{
-			configProperty = new ArrayList<ConfigPropertyType>();
+			configProperty = new ArrayList<>();
 		}
 		return this.configProperty;
 	}

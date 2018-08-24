@@ -1,5 +1,7 @@
 package com.jboss.wildfly.schema;
 
-public interface IDataSource {
+@FunctionalInterface
+public interface IDataSource
+{
 	String getJndiName();
 }

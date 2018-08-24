@@ -48,17 +48,10 @@ public class DB2WildflyDriver
 		                  .getPassword()
 		                  .trim());
 
-		//cbi.setEnableJdbc4ConnectionTest(true);
-		//cbi.setShareTransactionConnections(true);
 		if (xa.getTransactionIsolation() != null)
 		{
-			cbi.setTransactionIsolation(translateIsolation(xa.getTransactionIsolation()).toString());
+			cbi.setTransactionIsolation(translateIsolation(xa.getTransactionIsolation()));
 		}
-		//cbi.setPreparedStatementCacheSize(50);
-		//cbi.setIgnoreRecoveryFailures(false);
-		//cbi.setAllowLocalTransactions(true);
-		//	cbi.setAcquireIncrement(5);
-
 		if (xa.getValidation() != null)
 		{
 			if (xa.getValidation()
