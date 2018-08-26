@@ -1,4 +1,5 @@
-import com.jwebmp.guicedpersistence.db.PropertiesConnectionInfoReader;
+
+import com.jwebmp.guicedpersistence.services.PropertiesConnectionInfoReader;
 import com.jwebmp.guicedpersistence.wildfly.WildflyConnectionInfoBuilder;
 import com.jwebmp.guicedpersistence.wildfly.readers.DB2WildflyDriver;
 import com.jwebmp.guicedpersistence.wildfly.readers.IWildflyDriverRegistration;
