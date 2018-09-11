@@ -21,27 +21,68 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 
+/**
+ * The wildfly connection details information builder for Guiced Persistence
+ */
 public class WildflyConnectionInfoBuilder
 		implements PropertiesConnectionInfoReader
 {
+	/**
+	 * The log file
+	 */
 	private static final Logger log = LogFactory.getLog("WildflyConnectionInfoReader");
+	/**
+	 * The driver registrations
+	 */
 	private static final ServiceLoader<IWildflyDriverRegistration> driverRegistrations = ServiceLoader.load(IWildflyDriverRegistration.class);
+	/**
+	 * The standalone file to read from the system property jboss config - can be different to what is actually being used in wildfly.
+	 */
 	private static String standaloneFileName = "standalone.xml";
 	/**
 	 * The sub system type
 	 */
 	private static SubsystemType subsystemType = null;
 
+	/**
+	 * Method getStandaloneFileName returns the standaloneFileName of this WildflyConnectionInfoBuilder object.
+	 * <p>
+	 * The standalone file to read from the system property jboss config - can be different to what is actually being used in wildfly.
+	 *
+	 * @return the standaloneFileName (type String) of this WildflyConnectionInfoBuilder object.
+	 */
+	@SuppressWarnings("unused")
 	public static String getStandaloneFileName()
 	{
 		return WildflyConnectionInfoBuilder.standaloneFileName;
 	}
 
+	/**
+	 * Method setStandaloneFileName sets the standaloneFileName of this WildflyConnectionInfoBuilder object.
+	 * <p>
+	 * The standalone file to read from the system property jboss config - can be different to what is actually being used in wildfly.
+	 *
+	 * @param standaloneFileName
+	 * 		the standaloneFileName of this WildflyConnectionInfoBuilder object.
+	 */
+	@SuppressWarnings("WeakerAccess")
 	public static void setStandaloneFileName(String standaloneFileName)
 	{
 		WildflyConnectionInfoBuilder.standaloneFileName = standaloneFileName;
 	}
 
+	/**
+	 * Method populateConnectionBaseInfo ...
+	 *
+	 * @param unit
+	 * 		of type PersistenceUnit
+	 * @param filteredProperties
+	 * 		of type Properties
+	 * @param cbi
+	 * 		of type ConnectionBaseInfo
+	 *
+	 * @return ConnectionBaseInfo
+	 */
 	@Override
 	public ConnectionBaseInfo populateConnectionBaseInfo(PersistenceUnit unit, Properties filteredProperties, ConnectionBaseInfo cbi)
 	{
@@ -50,15 +91,22 @@ public class WildflyConnectionInfoBuilder
 		IDataSource ds = findDatasource(type, unit.getJtaDataSource());
 		if (XaDatasourceType.class.isAssignableFrom(ds.getClass()))
 		{
-			cbi = getConnectionBaseInfo(type, (XaDatasourceType) ds, unit.getJtaDataSource(), cbi);
+			getConnectionBaseInfo(type, (XaDatasourceType) ds, unit.getJtaDataSource(), cbi);
 		}
 		else
 		{
-			cbi = getConnectionBaseInfo(type, (DatasourceType) ds, unit.getJtaDataSource(), unit, cbi);
+			getConnectionBaseInfo(type, (DatasourceType) ds, unit.getJtaDataSource(), unit, cbi);
 		}
 		return cbi;
 	}
 
+	/**
+	 * Method getDatasourceSubsystem returns the datasourceSubsystem of this WildflyConnectionInfoBuilder object.
+	 * <p>
+	 * Returns the datasource subsystem type from the specified standalone file
+	 *
+	 * @return the datasourceSubsystem (type SubsystemType) of this WildflyConnectionInfoBuilder object.
+	 */
 	private static SubsystemType getDatasourceSubsystem()
 	{
 		String jbossHome = System.getProperty("jboss.server.config.dir");
@@ -97,6 +145,16 @@ public class WildflyConnectionInfoBuilder
 		return WildflyConnectionInfoBuilder.subsystemType;
 	}
 
+	/**
+	 * FInds a given data source in the types with the given jndi mapping
+	 *
+	 * @param datasources
+	 * 		The datasources
+	 * @param jndiMapping
+	 * 		The mapping
+	 *
+	 * @return An IDatasource XA or Not
+	 */
 	private IDataSource findDatasource(SubsystemType datasources, String jndiMapping)
 	{
 		List<DatasourceType> nonXaDataSources = datasources.getDatasources()
@@ -125,7 +183,19 @@ public class WildflyConnectionInfoBuilder
 		throw new NoConnectionInfoException("The JNDI Name [" + jndiMapping + "] must be available in the standalone config file.");
 	}
 
-	private ConnectionBaseInfo getConnectionBaseInfo(SubsystemType ds, XaDatasourceType xa, String jndiMapping, ConnectionBaseInfo cbi)
+	/**
+	 * Returns the standard connection base info for the jndi mapping
+	 *
+	 * @param ds
+	 * 		The subsystem
+	 * @param xa
+	 * 		The xa type
+	 * @param jndiMapping
+	 * 		The mapping specified
+	 * @param cbi
+	 * 		Incoming info object
+	 */
+	private void getConnectionBaseInfo(SubsystemType ds, XaDatasourceType xa, String jndiMapping, ConnectionBaseInfo cbi)
 	{
 		cbi.setDatabaseName(findProperty(xa, "DatabaseName"));
 		cbi.setUsername(findProperty(xa, "User"));
@@ -177,10 +247,23 @@ public class WildflyConnectionInfoBuilder
 		cbi.setDriver(xa.getDriver());
 		cbi.setUrl(null);
 		cbi.setXa(true);
-		return cbi;
 	}
 
-	private ConnectionBaseInfo getConnectionBaseInfo(SubsystemType ds, DatasourceType xa, String jndiMapping, PersistenceUnit persistenceUnit, ConnectionBaseInfo cbi)
+	/**
+	 * Method getConnectionBaseInfo for Non-Xa types
+	 *
+	 * @param ds
+	 * 		of type SubsystemType
+	 * @param xa
+	 * 		of type DatasourceType
+	 * @param jndiMapping
+	 * 		of type String
+	 * @param persistenceUnit
+	 * 		of type PersistenceUnit
+	 * @param cbi
+	 * 		of type ConnectionBaseInfo
+	 */
+	private void getConnectionBaseInfo(SubsystemType ds, DatasourceType xa, String jndiMapping, PersistenceUnit persistenceUnit, ConnectionBaseInfo cbi)
 	{
 		boolean found = false;
 		for (IWildflyDriverRegistration driverRegistration : WildflyConnectionInfoBuilder.driverRegistrations)
@@ -200,9 +283,18 @@ public class WildflyConnectionInfoBuilder
 		}
 
 		cbi.setXa(false);
-		return cbi;
 	}
 
+	/**
+	 * Finds a property from the given property name
+	 *
+	 * @param xa
+	 * 		The xa type
+	 * @param propertyName
+	 * 		The property to find
+	 *
+	 * @return The string or null
+	 */
 	private String findProperty(XaDatasourceType xa, String propertyName)
 	{
 		for (XaDatasourcePropertyType propertyType : xa.getXaDatasourceProperty())
@@ -217,6 +309,16 @@ public class WildflyConnectionInfoBuilder
 		return null;
 	}
 
+	/**
+	 * Gets the driver class from the subsystem
+	 *
+	 * @param ds
+	 * 		The datasource type
+	 * @param driver
+	 * 		The driver
+	 *
+	 * @return The string of the class name
+	 */
 	private String findDriverClassForDriver(SubsystemType ds, String driver)
 	{
 		for (DriverType driverType : ds.getDatasources()
@@ -232,6 +334,14 @@ public class WildflyConnectionInfoBuilder
 		throw new NoConnectionInfoException("Unable to determine the XA Driver from the given name " + driver);
 	}
 
+	/**
+	 * Gets the translation isolation for the type
+	 *
+	 * @param isoType
+	 * 		of type TransactionIsolationType
+	 *
+	 * @return String
+	 */
 	private String translateIsolation(TransactionIsolationType isoType)
 	{
 		return isoType.name()

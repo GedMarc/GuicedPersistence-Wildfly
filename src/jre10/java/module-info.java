@@ -26,4 +26,6 @@ module com.jwebmp.guicedpersistence.wildfly {
 	requires com.fasterxml.jackson.databind;
 	requires org.apache.commons.io;
 
+	requires com.jwebmp.guicedpersistence.readers.hibernateproperties;
+	requires com.jwebmp.guicedpersistence.readers.systemproperties;
 }
