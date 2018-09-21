@@ -34,7 +34,7 @@ public class DB2WildflyDriver
 	public ConnectionBaseInfo fromConnectionString(Matcher sqlMatch, String connectionInfo, ConnectionBaseInfo cbi, PersistenceUnit persistenceUnit, SubsystemType ds, DatasourceType xa, String jndiMapping)
 	{
 		cbi.setUrl(xa.getConnectionUrl());
-		// String s1 = sqlMatch.group(1);
+
 		String serverName = sqlMatch.group(2);
 		String database = sqlMatch.group(5);
 		cbi.setDatabaseName(Strings.emptyToNull(database.replaceAll(";", "")

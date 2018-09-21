@@ -71,7 +71,6 @@ public class SQLServerWildflyDriver
 	@Override
 	public ConnectionBaseInfo fromConnectionString(Matcher sqlMatch, String connectionInfo, ConnectionBaseInfo cbi, PersistenceUnit persistenceUnit, SubsystemType ds, DatasourceType xa, String jndiMapping)
 	{
-		String s1 = sqlMatch.group(1);
 		String serverName = sqlMatch.group(2);
 		String instanceName = sqlMatch.group(3);
 		String port = sqlMatch.group(4);
