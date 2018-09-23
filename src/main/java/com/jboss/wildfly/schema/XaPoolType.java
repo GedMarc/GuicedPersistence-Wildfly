@@ -14,22 +14,22 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for xa-poolType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="xa-poolType">
- *   &lt;complexContent>
- *     &lt;extension base="{urn:jboss:domain:datasources:4.0}poolType">
- *       &lt;sequence>
- *         &lt;element name="is-same-rm-override" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="interleaving" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/>
- *         &lt;element name="no-tx-separate-pools" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/>
- *         &lt;element name="pad-xid" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="wrap-xa-resource" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="xa-poolType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;extension base="{urn:jboss:domain:datasources:4.0}poolType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="is-same-rm-override" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ * &lt;element name="interleaving" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/&gt;
+ * &lt;element name="no-tx-separate-pools" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/&gt;
+ * &lt;element name="pad-xid" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ * &lt;element name="wrap-xa-resource" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;/extension&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -70,7 +70,7 @@ public class XaPoolType
 	 */
 	public void setIsSameRmOverride(Boolean value)
 	{
-		this.isSameRmOverride = value;
+		isSameRmOverride = value;
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class XaPoolType
 	 */
 	public void setInterleaving(BooleanPresenceType value)
 	{
-		this.interleaving = value;
+		interleaving = value;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class XaPoolType
 	 */
 	public void setNoTxSeparatePools(BooleanPresenceType value)
 	{
-		this.noTxSeparatePools = value;
+		noTxSeparatePools = value;
 	}
 
 	/**
@@ -139,7 +139,7 @@ public class XaPoolType
 	 */
 	public void setPadXid(Boolean value)
 	{
-		this.padXid = value;
+		padXid = value;
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class XaPoolType
 	 */
 	public void setWrapXaResource(Boolean value)
 	{
-		this.wrapXaResource = value;
+		wrapXaResource = value;
 	}
 
 }
