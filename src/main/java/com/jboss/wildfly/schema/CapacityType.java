@@ -11,19 +11,19 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for capacityType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="capacityType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="incrementer" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/>
- *         &lt;element name="decrementer" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="capacityType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="incrementer" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/&gt;
+ * &lt;element name="decrementer" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&lt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -56,7 +56,7 @@ public class CapacityType
 	 */
 	public void setIncrementer(ExtensionType value)
 	{
-		this.incrementer = value;
+		incrementer = value;
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class CapacityType
 	 */
 	public void setDecrementer(ExtensionType value)
 	{
-		this.decrementer = value;
+		decrementer = value;
 	}
 
 }

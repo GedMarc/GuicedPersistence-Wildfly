@@ -16,20 +16,20 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for statementType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="statementType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="track-statements" type="{urn:jboss:domain:datasources:4.0}track-statementsType" minOccurs="0"/>
- *         &lt;element name="prepared-statement-cache-size" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="share-prepared-statements" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="statementType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="track-statements" type="{urn:jboss:domain:datasources:4.0}track-statementsType" minOccurs="0"/&gt;
+ * &lt;element name="prepared-statement-cache-size" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="share-prepared-statements" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -66,7 +66,7 @@ public class StatementType
 	 */
 	public void setTrackStatements(TrackStatementsType value)
 	{
-		this.trackStatements = value;
+		trackStatements = value;
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class StatementType
 	 */
 	public void setPreparedStatementCacheSize(BigInteger value)
 	{
-		this.preparedStatementCacheSize = value;
+		preparedStatementCacheSize = value;
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class StatementType
 	 */
 	public void setSharePreparedStatements(BooleanPresenceType value)
 	{
-		this.sharePreparedStatements = value;
+		sharePreparedStatements = value;
 	}
 
 }

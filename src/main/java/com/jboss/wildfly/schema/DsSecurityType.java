@@ -14,25 +14,25 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for dsSecurityType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="dsSecurityType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;choice>
- *           &lt;sequence>
- *             &lt;element name="user-name" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *             &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *           &lt;/sequence>
- *           &lt;element name="security-domain" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;/choice>
- *         &lt;element name="reauth-plugin" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="dsSecurityType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;choice&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="user-name" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;element name="security-domain" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;/choice&gt;
+ * &lt;element name="reauth-plugin" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -70,7 +70,7 @@ public class DsSecurityType
 	 */
 	public void setUserName(String value)
 	{
-		this.userName = value;
+		userName = value;
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class DsSecurityType
 	 */
 	public void setPassword(String value)
 	{
-		this.password = value;
+		password = value;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class DsSecurityType
 	 */
 	public void setSecurityDomain(String value)
 	{
-		this.securityDomain = value;
+		securityDomain = value;
 	}
 
 	/**
@@ -139,7 +139,7 @@ public class DsSecurityType
 	 */
 	public void setReauthPlugin(ExtensionType value)
 	{
-		this.reauthPlugin = value;
+		reauthPlugin = value;
 	}
 
 }

@@ -14,24 +14,24 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for driverType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="driverType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="driver-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="xa-datasource-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="datasource-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}token" />
- *       &lt;attribute name="module" type="{http://www.w3.org/2001/XMLSchema}token" />
- *       &lt;attribute name="major-version" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="minor-verion" type="{http://www.w3.org/2001/XMLSchema}int" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="driverType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="driver-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="xa-datasource-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="datasource-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}token" /&gt;
+ * &lt;attribute name="module" type="{http://www.w3.org/2001/XMLSchema}token" /&gt;
+ * &lt;attribute name="major-version" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ * &lt;attribute name="minor-verion" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -75,7 +75,7 @@ public class DriverType
 	 */
 	public void setDriverClass(String value)
 	{
-		this.driverClass = value;
+		driverClass = value;
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class DriverType
 	 */
 	public void setXaDatasourceClass(String value)
 	{
-		this.xaDatasourceClass = value;
+		xaDatasourceClass = value;
 	}
 
 	/**
@@ -121,7 +121,7 @@ public class DriverType
 	 */
 	public void setDatasourceClass(String value)
 	{
-		this.datasourceClass = value;
+		datasourceClass = value;
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class DriverType
 	 */
 	public void setName(String value)
 	{
-		this.name = value;
+		name = value;
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class DriverType
 	 */
 	public void setModule(String value)
 	{
-		this.module = value;
+		module = value;
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class DriverType
 	 */
 	public void setMajorVersion(Integer value)
 	{
-		this.majorVersion = value;
+		majorVersion = value;
 	}
 
 	/**
@@ -213,7 +213,7 @@ public class DriverType
 	 */
 	public void setMinorVerion(Integer value)
 	{
-		this.minorVerion = value;
+		minorVerion = value;
 	}
 
 }

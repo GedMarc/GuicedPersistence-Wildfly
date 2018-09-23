@@ -8,6 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.*;
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 
+/**
+ * A JSON Container for the datasource type
+ */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
 		setterVisibility = NONE)
@@ -15,6 +18,9 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WildflyDatasourceContainer
 {
+	/**
+	 * Field subsystem
+	 */
 	@JsonProperty("subsystem")
 	private SubsystemType subsystem;
 

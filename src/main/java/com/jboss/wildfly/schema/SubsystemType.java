@@ -14,17 +14,17 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
- * <pre>
- * &lt;complexType name="subsystemType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;all>
- *         &lt;element name="datasources" type="{urn:jboss:domain:datasources:4.0}datasourcesType"/>
- *       &lt;/all>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * &lt;pre&gt;
+ * &lt;complexType name="subsystemType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;all&gt;
+ * &lt;element name="datasources" type="{urn:jboss:domain:datasources:4.0}datasourcesType"/&gt;
+ * &lt;/all&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 
 @JsonAutoDetect(fieldVisibility = ANY,
@@ -57,7 +57,7 @@ public class SubsystemType
 	 */
 	public void setDatasources(DatasourcesType value)
 	{
-		this.datasources = value;
+		datasources = value;
 	}
 
 }

@@ -17,34 +17,34 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for datasourceType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="datasourceType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="connection-url" type="{http://www.w3.org/2001/XMLSchema}token"/>
- *         &lt;element name="driver-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="datasource-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="driver" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="connection-property" type="{urn:jboss:domain:datasources:4.0}connection-propertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="new-connection-sql" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="transaction-isolation" type="{urn:jboss:domain:datasources:4.0}transaction-isolationType" minOccurs="0"/>
- *         &lt;element name="url-delimiter" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="url-property" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="url-selector-strategy-class-name" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="pool" type="{urn:jboss:domain:datasources:4.0}poolType" minOccurs="0"/>
- *         &lt;element name="security" type="{urn:jboss:domain:datasources:4.0}dsSecurityType" minOccurs="0"/>
- *         &lt;element name="validation" type="{urn:jboss:domain:datasources:4.0}validationType" minOccurs="0"/>
- *         &lt;element name="timeout" type="{urn:jboss:domain:datasources:4.0}timeoutType" minOccurs="0"/>
- *         &lt;element name="statement" type="{urn:jboss:domain:datasources:4.0}statementType" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attGroup ref="{urn:jboss:domain:datasources:4.0}common-datasourceAttributes"/>
- *       &lt;attribute name="jta" type="{http://www.w3.org/2001/XMLSchema}boolean" default="true" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="datasourceType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="connection-url" type="{http://www.w3.org/2001/XMLSchema}token"/&gt;
+ * &lt;element name="driver-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="datasource-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="driver" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="connection-property" type="{urn:jboss:domain:datasources:4.0}connection-propertyType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ * &lt;element name="new-connection-sql" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ * &lt;element name="transaction-isolation" type="{urn:jboss:domain:datasources:4.0}transaction-isolationType" minOccurs="0"/&gt;
+ * &lt;element name="url-delimiter" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="url-property" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="url-selector-strategy-class-name" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="pool" type="{urn:jboss:domain:datasources:4.0}poolType" minOccurs="0"/&gt;
+ * &lt;element name="security" type="{urn:jboss:domain:datasources:4.0}dsSecurityType" minOccurs="0"/&gt;
+ * &lt;element name="validation" type="{urn:jboss:domain:datasources:4.0}validationType" minOccurs="0"/&gt;
+ * &lt;element name="timeout" type="{urn:jboss:domain:datasources:4.0}timeoutType" minOccurs="0"/&gt;
+ * &lt;element name="statement" type="{urn:jboss:domain:datasources:4.0}statementType" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;attGroup ref="{urn:jboss:domain:datasources:4.0}common-datasourceAttributes"/&gt;
+ * &lt;attribute name="jta" type="{http://www.w3.org/2001/XMLSchema}boolean" default="true" /&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -54,56 +54,137 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class DatasourceType
 		implements IDataSource
 {
+	/**
+	 * Field connectionUrl
+	 */
 	@JsonProperty(value = "connection-url")
 	private String connectionUrl;
+	/**
+	 * Field driverClass
+	 */
 	@JsonProperty(value = "driver-class")
 	private String driverClass;
+	/**
+	 * Field datasourceClass
+	 */
 	@JsonProperty(value = "datasource-class")
 	private String datasourceClass;
 
+	/**
+	 * Field driver
+	 */
 	private String driver;
+	/**
+	 * Field connectionProperty
+	 */
 	@JsonProperty(value = "connection-property")
 	private List<ConnectionPropertyType> connectionProperty;
+	/**
+	 * Field newConnectionSql
+	 */
 	@JsonProperty(value = "new-connection-sql")
 	private String newConnectionSql;
+	/**
+	 * Field transactionIsolation
+	 */
 	@JsonProperty(value = "transaction-isolation")
 	private TransactionIsolationType transactionIsolation;
+	/**
+	 * Field urlDelimiter
+	 */
 	@JsonProperty(value = "url-delimiter")
 
 	private String urlDelimiter;
+	/**
+	 * Field urlProperty
+	 */
 	@JsonProperty(value = "url-property")
 
 	private String urlProperty;
+	/**
+	 * Field urlSelectorStrategyClassName
+	 */
 	@JsonProperty(value = "url-selector-strategy-class-name")
 
 	private String urlSelectorStrategyClassName;
+	/**
+	 * Field pool
+	 */
 	private PoolType pool;
+	/**
+	 * Field security
+	 */
 	private DsSecurityType security;
+	/**
+	 * Field validation
+	 */
 	private ValidationType validation;
+	/**
+	 * Field timeout
+	 */
 	private TimeoutType timeout;
+	/**
+	 * Field statement
+	 */
 	private StatementType statement;
+	/**
+	 * Field jta
+	 */
 	@JsonProperty(value = "jta")
 	private Boolean jta;
+	/**
+	 * Field jndiName
+	 */
 	@JsonProperty(value = "jndi-name")
 	private String jndiName;
+	/**
+	 * Field poolName
+	 */
 	@JsonProperty(value = "pool-name")
 	private String poolName;
+	/**
+	 * Field enabled
+	 */
 	@JsonProperty(value = "enabled")
 	private Boolean enabled;
+	/**
+	 * Field useJavaContext
+	 */
 	@JsonProperty(value = "use-java-context")
 	private Boolean useJavaContext;
+	/**
+	 * Field spy
+	 */
 	@JsonProperty(value = "spy")
 	private Boolean spy;
+	/**
+	 * Field useCcm
+	 */
 	@JsonProperty(value = "use-ccm")
 	private Boolean useCcm;
+	/**
+	 * Field connectable
+	 */
 	@JsonProperty(value = "connectable")
 	private Boolean connectable;
+	/**
+	 * Field tracking
+	 */
 	@JsonProperty(value = "tracking")
 	private Boolean tracking;
+	/**
+	 * Field statisticsEnabled
+	 */
 	@JsonProperty(value = "statistics-enabled")
 	private Boolean statisticsEnabled;
+	/**
+	 * Field mcp
+	 */
 	@JsonProperty(value = "mcp")
 	private String mcp;
+	/**
+	 * Field enlistmentTrace
+	 */
 	@JsonProperty(value = "enlistment-trace")
 	private Boolean enlistmentTrace;
 
@@ -127,7 +208,7 @@ public class DatasourceType
 	 */
 	public void setConnectionUrl(String value)
 	{
-		this.connectionUrl = value;
+		connectionUrl = value;
 	}
 
 	/**
@@ -150,7 +231,7 @@ public class DatasourceType
 	 */
 	public void setDriverClass(String value)
 	{
-		this.driverClass = value;
+		driverClass = value;
 	}
 
 	/**
@@ -173,7 +254,7 @@ public class DatasourceType
 	 */
 	public void setDatasourceClass(String value)
 	{
-		this.datasourceClass = value;
+		datasourceClass = value;
 	}
 
 	/**
@@ -196,7 +277,7 @@ public class DatasourceType
 	 */
 	public void setDriver(String value)
 	{
-		this.driver = value;
+		driver = value;
 	}
 
 	/**
@@ -225,7 +306,7 @@ public class DatasourceType
 		{
 			connectionProperty = new ArrayList<>();
 		}
-		return this.connectionProperty;
+		return connectionProperty;
 	}
 
 	/**
@@ -248,7 +329,7 @@ public class DatasourceType
 	 */
 	public void setNewConnectionSql(String value)
 	{
-		this.newConnectionSql = value;
+		newConnectionSql = value;
 	}
 
 	/**
@@ -271,7 +352,7 @@ public class DatasourceType
 	 */
 	public void setTransactionIsolation(TransactionIsolationType value)
 	{
-		this.transactionIsolation = value;
+		transactionIsolation = value;
 	}
 
 	/**
@@ -294,7 +375,7 @@ public class DatasourceType
 	 */
 	public void setUrlDelimiter(String value)
 	{
-		this.urlDelimiter = value;
+		urlDelimiter = value;
 	}
 
 	/**
@@ -317,7 +398,7 @@ public class DatasourceType
 	 */
 	public void setUrlProperty(String value)
 	{
-		this.urlProperty = value;
+		urlProperty = value;
 	}
 
 	/**
@@ -340,7 +421,7 @@ public class DatasourceType
 	 */
 	public void setUrlSelectorStrategyClassName(String value)
 	{
-		this.urlSelectorStrategyClassName = value;
+		urlSelectorStrategyClassName = value;
 	}
 
 	/**
@@ -363,7 +444,7 @@ public class DatasourceType
 	 */
 	public void setPool(PoolType value)
 	{
-		this.pool = value;
+		pool = value;
 	}
 
 	/**
@@ -386,7 +467,7 @@ public class DatasourceType
 	 */
 	public void setSecurity(DsSecurityType value)
 	{
-		this.security = value;
+		security = value;
 	}
 
 	/**
@@ -409,7 +490,7 @@ public class DatasourceType
 	 */
 	public void setValidation(ValidationType value)
 	{
-		this.validation = value;
+		validation = value;
 	}
 
 	/**
@@ -432,7 +513,7 @@ public class DatasourceType
 	 */
 	public void setTimeout(TimeoutType value)
 	{
-		this.timeout = value;
+		timeout = value;
 	}
 
 	/**
@@ -455,7 +536,7 @@ public class DatasourceType
 	 */
 	public void setStatement(StatementType value)
 	{
-		this.statement = value;
+		statement = value;
 	}
 
 	/**
@@ -485,7 +566,7 @@ public class DatasourceType
 	 */
 	public void setJta(Boolean value)
 	{
-		this.jta = value;
+		jta = value;
 	}
 
 	/**
@@ -509,7 +590,7 @@ public class DatasourceType
 	 */
 	public void setJndiName(String value)
 	{
-		this.jndiName = value;
+		jndiName = value;
 	}
 
 	/**
@@ -532,7 +613,7 @@ public class DatasourceType
 	 */
 	public void setPoolName(String value)
 	{
-		this.poolName = value;
+		poolName = value;
 	}
 
 	/**
@@ -562,7 +643,7 @@ public class DatasourceType
 	 */
 	public void setEnabled(Boolean value)
 	{
-		this.enabled = value;
+		enabled = value;
 	}
 
 	/**
@@ -592,7 +673,7 @@ public class DatasourceType
 	 */
 	public void setUseJavaContext(Boolean value)
 	{
-		this.useJavaContext = value;
+		useJavaContext = value;
 	}
 
 	/**
@@ -622,7 +703,7 @@ public class DatasourceType
 	 */
 	public void setSpy(Boolean value)
 	{
-		this.spy = value;
+		spy = value;
 	}
 
 	/**
@@ -652,7 +733,7 @@ public class DatasourceType
 	 */
 	public void setUseCcm(Boolean value)
 	{
-		this.useCcm = value;
+		useCcm = value;
 	}
 
 	/**
@@ -682,7 +763,7 @@ public class DatasourceType
 	 */
 	public void setConnectable(Boolean value)
 	{
-		this.connectable = value;
+		connectable = value;
 	}
 
 	/**
@@ -705,7 +786,7 @@ public class DatasourceType
 	 */
 	public void setTracking(Boolean value)
 	{
-		this.tracking = value;
+		tracking = value;
 	}
 
 	/**
@@ -735,7 +816,7 @@ public class DatasourceType
 	 */
 	public void setStatisticsEnabled(Boolean value)
 	{
-		this.statisticsEnabled = value;
+		statisticsEnabled = value;
 	}
 
 	/**
@@ -758,7 +839,7 @@ public class DatasourceType
 	 */
 	public void setMcp(String value)
 	{
-		this.mcp = value;
+		mcp = value;
 	}
 
 	/**
@@ -781,7 +862,7 @@ public class DatasourceType
 	 */
 	public void setEnlistmentTrace(Boolean value)
 	{
-		this.enlistmentTrace = value;
+		enlistmentTrace = value;
 	}
 
 }

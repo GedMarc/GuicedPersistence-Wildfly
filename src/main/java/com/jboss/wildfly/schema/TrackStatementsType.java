@@ -14,15 +14,15 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
- * <pre>
- * &lt;simpleType name="track-statementsType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token">
- *     &lt;enumeration value="true"/>
- *     &lt;enumeration value="false"/>
- *     &lt;enumeration value="nowarn"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
+ * &lt;pre&gt;
+ * &lt;simpleType name="track-statementsType"&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token"&gt;
+ * &lt;enumeration value="true"/&gt;
+ * &lt;enumeration value="false"/&gt;
+ * &lt;enumeration value="nowarn"/&gt;
+ * &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,

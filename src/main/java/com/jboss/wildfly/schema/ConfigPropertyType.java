@@ -19,16 +19,16 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for config-propertyType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="config-propertyType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>token">
- *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="config-propertyType"&gt;
+ * &lt;simpleContent&gt;
+ * &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;token"&gt;
+ * &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}token" /&gt;
+ * &lt;/extension&gt;
+ * &lt;/simpleContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -85,7 +85,7 @@ public class ConfigPropertyType
 	 */
 	public void setName(String value)
 	{
-		this.name = value;
+		name = value;
 	}
 
 }

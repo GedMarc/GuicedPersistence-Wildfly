@@ -17,22 +17,22 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for datasourcesType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="datasourcesType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;choice maxOccurs="unbounded" minOccurs="0">
- *           &lt;element name="datasource" type="{urn:jboss:domain:datasources:4.0}datasourceType"/>
- *           &lt;element name="xa-datasource" type="{urn:jboss:domain:datasources:4.0}xa-datasourceType"/>
- *         &lt;/choice>
- *         &lt;element name="drivers" type="{urn:jboss:domain:datasources:4.0}driversType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="datasourcesType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;choice maxOccurs="unbounded" minOccurs="0"&gt;
+ * &lt;element name="datasource" type="{urn:jboss:domain:datasources:4.0}datasourceType"/&gt;
+ * &lt;element name="xa-datasource" type="{urn:jboss:domain:datasources:4.0}xa-datasourceType"/&gt;
+ * &lt;/choice&gt;
+ * &lt;element name="drivers" type="{urn:jboss:domain:datasources:4.0}driversType" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -96,7 +96,7 @@ public class DatasourcesType
 	 */
 	public void setDrivers(DriversType value)
 	{
-		this.drivers = value;
+		drivers = value;
 	}
 
 }

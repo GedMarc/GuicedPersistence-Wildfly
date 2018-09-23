@@ -16,18 +16,18 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for driversType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="driversType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="driver" type="{urn:jboss:domain:datasources:4.0}driverType" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="driversType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="driver" type="{urn:jboss:domain:datasources:4.0}driverType" maxOccurs="unbounded"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -65,7 +65,7 @@ public class DriversType
 		{
 			driver = new ArrayList<>();
 		}
-		return this.driver;
+		return driver;
 	}
 
 }

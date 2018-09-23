@@ -17,19 +17,19 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for extensionType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="extensionType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="config-property" type="{urn:jboss:domain:datasources:4.0}config-propertyType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="class-name" use="required" type="{http://www.w3.org/2001/XMLSchema}token" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="extensionType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="config-property" type="{urn:jboss:domain:datasources:4.0}config-propertyType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;attribute name="class-name" use="required" type="{http://www.w3.org/2001/XMLSchema}token" /&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -70,7 +70,7 @@ public class ExtensionType
 		{
 			configProperty = new ArrayList<>();
 		}
-		return this.configProperty;
+		return configProperty;
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class ExtensionType
 	 */
 	public void setClassName(String value)
 	{
-		this.className = value;
+		className = value;
 	}
 
 }

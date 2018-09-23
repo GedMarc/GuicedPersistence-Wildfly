@@ -14,17 +14,17 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
- * <pre>
- * &lt;simpleType name="transaction-isolationType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token">
- *     &lt;enumeration value="TRANSACTION_READ_UNCOMMITTED"/>
- *     &lt;enumeration value="TRANSACTION_READ_COMMITTED"/>
- *     &lt;enumeration value="TRANSACTION_REPEATABLE_READ"/>
- *     &lt;enumeration value="TRANSACTION_SERIALIZABLE"/>
- *     &lt;enumeration value="TRANSACTION_NONE"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
+ * &lt;pre&gt;
+ * &lt;simpleType name="transaction-isolationType"&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token"&gt;
+ * &lt;enumeration value="TRANSACTION_READ_UNCOMMITTED"/&gt;
+ * &lt;enumeration value="TRANSACTION_READ_COMMITTED"/&gt;
+ * &lt;enumeration value="TRANSACTION_REPEATABLE_READ"/&gt;
+ * &lt;enumeration value="TRANSACTION_SERIALIZABLE"/&gt;
+ * &lt;enumeration value="TRANSACTION_NONE"/&gt;
+ * &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,

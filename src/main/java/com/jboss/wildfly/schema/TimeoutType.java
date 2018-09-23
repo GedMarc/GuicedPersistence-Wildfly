@@ -16,25 +16,25 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for timeoutType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="timeoutType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="blocking-timeout-millis" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="idle-timeout-minutes" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="set-tx-query-timeout" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/>
- *         &lt;element name="query-timeout" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="use-try-lock" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="allocation-retry" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="allocation-retry-wait-millis" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="xa-resource-timeout" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="timeoutType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="blocking-timeout-millis" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="idle-timeout-minutes" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="set-tx-query-timeout" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/&gt;
+ * &lt;element name="query-timeout" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="use-try-lock" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="allocation-retry" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="allocation-retry-wait-millis" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="xa-resource-timeout" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -81,7 +81,7 @@ public class TimeoutType
 	 */
 	public void setBlockingTimeoutMillis(BigInteger value)
 	{
-		this.blockingTimeoutMillis = value;
+		blockingTimeoutMillis = value;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class TimeoutType
 	 */
 	public void setIdleTimeoutMinutes(BigInteger value)
 	{
-		this.idleTimeoutMinutes = value;
+		idleTimeoutMinutes = value;
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class TimeoutType
 	 */
 	public void setSetTxQueryTimeout(BooleanPresenceType value)
 	{
-		this.setTxQueryTimeout = value;
+		setTxQueryTimeout = value;
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class TimeoutType
 	 */
 	public void setQueryTimeout(BigInteger value)
 	{
-		this.queryTimeout = value;
+		queryTimeout = value;
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class TimeoutType
 	 */
 	public void setUseTryLock(BigInteger value)
 	{
-		this.useTryLock = value;
+		useTryLock = value;
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class TimeoutType
 	 */
 	public void setAllocationRetry(BigInteger value)
 	{
-		this.allocationRetry = value;
+		allocationRetry = value;
 	}
 
 	/**
@@ -219,7 +219,7 @@ public class TimeoutType
 	 */
 	public void setAllocationRetryWaitMillis(BigInteger value)
 	{
-		this.allocationRetryWaitMillis = value;
+		allocationRetryWaitMillis = value;
 	}
 
 	/**
@@ -242,7 +242,7 @@ public class TimeoutType
 	 */
 	public void setXaResourceTimeout(String value)
 	{
-		this.xaResourceTimeout = value;
+		xaResourceTimeout = value;
 	}
 
 }

@@ -14,20 +14,20 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for recoverType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="recoverType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="recover-credential" type="{urn:jboss:domain:datasources:4.0}dsSecurityType" minOccurs="0"/>
- *         &lt;element name="recover-plugin" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="no-recovery" type="{http://www.w3.org/2001/XMLSchema}boolean" default="false" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="recoverType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="recover-credential" type="{urn:jboss:domain:datasources:4.0}dsSecurityType" minOccurs="0"/&gt;
+ * &lt;element name="recover-plugin" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;attribute name="no-recovery" type="{http://www.w3.org/2001/XMLSchema}boolean" default="false" /&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -64,7 +64,7 @@ public class RecoverType
 	 */
 	public void setRecoverCredential(DsSecurityType value)
 	{
-		this.recoverCredential = value;
+		recoverCredential = value;
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class RecoverType
 	 */
 	public void setRecoverPlugin(ExtensionType value)
 	{
-		this.recoverPlugin = value;
+		recoverPlugin = value;
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class RecoverType
 	 */
 	public void setNoRecovery(Boolean value)
 	{
-		this.noRecovery = value;
+		noRecovery = value;
 	}
 
 }

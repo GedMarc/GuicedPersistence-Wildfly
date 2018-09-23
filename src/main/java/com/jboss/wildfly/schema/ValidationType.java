@@ -16,25 +16,25 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for validationType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="validationType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="valid-connection-checker" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/>
- *         &lt;element name="check-valid-connection-sql" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="validate-on-match" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="background-validation" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="background-validation-millis" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="use-fast-fail" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="stale-connection-checker" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/>
- *         &lt;element name="exception-sorter" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="validationType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="valid-connection-checker" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/&gt;
+ * &lt;element name="check-valid-connection-sql" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ * &lt;element name="validate-on-match" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ * &lt;element name="background-validation" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ * &lt;element name="background-validation-millis" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="use-fast-fail" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ * &lt;element name="stale-connection-checker" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/&gt;
+ * &lt;element name="exception-sorter" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -45,20 +45,44 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ValidationType
 {
 
+	/**
+	 * Field validConnectionChecker
+	 */
 	@JsonProperty(value = "valid-connection-checker")
 	private ExtensionType validConnectionChecker;
+	/**
+	 * Field checkValidConnectionSql
+	 */
 	@JsonProperty(value = "check-valid-connection-sql")
 	private String checkValidConnectionSql;
+	/**
+	 * Field validateOnMatch
+	 */
 	@JsonProperty(value = "validate-on-match")
 	private Boolean validateOnMatch;
+	/**
+	 * Field backgroundValidation
+	 */
 	@JsonProperty(value = "background-validation")
 	private Boolean backgroundValidation;
+	/**
+	 * Field backgroundValidationMillis
+	 */
 	@JsonProperty(value = "background-validation-millis")
 	private BigInteger backgroundValidationMillis;
+	/**
+	 * Field useFastFail
+	 */
 	@JsonProperty(value = "use-fast-fail")
 	private Boolean useFastFail;
+	/**
+	 * Field staleConnectionChecker
+	 */
 	@JsonProperty(value = "stale-connection-checker")
 	private ExtensionType staleConnectionChecker;
+	/**
+	 * Field exceptionSorter
+	 */
 	@JsonProperty(value = "exception-sorter")
 	private ExtensionType exceptionSorter;
 
@@ -82,7 +106,7 @@ public class ValidationType
 	 */
 	public void setValidConnectionChecker(ExtensionType value)
 	{
-		this.validConnectionChecker = value;
+		validConnectionChecker = value;
 	}
 
 	/**
@@ -105,7 +129,7 @@ public class ValidationType
 	 */
 	public void setCheckValidConnectionSql(String value)
 	{
-		this.checkValidConnectionSql = value;
+		checkValidConnectionSql = value;
 	}
 
 	/**
@@ -128,7 +152,7 @@ public class ValidationType
 	 */
 	public void setValidateOnMatch(Boolean value)
 	{
-		this.validateOnMatch = value;
+		validateOnMatch = value;
 	}
 
 	/**
@@ -151,7 +175,7 @@ public class ValidationType
 	 */
 	public void setBackgroundValidation(Boolean value)
 	{
-		this.backgroundValidation = value;
+		backgroundValidation = value;
 	}
 
 	/**
@@ -174,7 +198,7 @@ public class ValidationType
 	 */
 	public void setBackgroundValidationMillis(BigInteger value)
 	{
-		this.backgroundValidationMillis = value;
+		backgroundValidationMillis = value;
 	}
 
 	/**
@@ -197,7 +221,7 @@ public class ValidationType
 	 */
 	public void setUseFastFail(Boolean value)
 	{
-		this.useFastFail = value;
+		useFastFail = value;
 	}
 
 	/**
@@ -220,7 +244,7 @@ public class ValidationType
 	 */
 	public void setStaleConnectionChecker(ExtensionType value)
 	{
-		this.staleConnectionChecker = value;
+		staleConnectionChecker = value;
 	}
 
 	/**
@@ -243,7 +267,7 @@ public class ValidationType
 	 */
 	public void setExceptionSorter(ExtensionType value)
 	{
-		this.exceptionSorter = value;
+		exceptionSorter = value;
 	}
 
 }

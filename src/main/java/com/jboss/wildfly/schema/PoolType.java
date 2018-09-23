@@ -16,27 +16,27 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for poolType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="poolType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="min-pool-size" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="initial-pool-size" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="max-pool-size" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
- *         &lt;element name="prefill" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="fair" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="use-strict-min" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="flush-strategy" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="allow-multiple-users" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/>
- *         &lt;element name="capacity" type="{urn:jboss:domain:datasources:4.0}capacityType" minOccurs="0"/>
- *         &lt;element name="connection-listener" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="poolType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="min-pool-size" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="initial-pool-size" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="max-pool-size" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/&gt;
+ * &lt;element name="prefill" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ * &lt;element name="fair" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ * &lt;element name="use-strict-min" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ * &lt;element name="flush-strategy" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="allow-multiple-users" type="{urn:jboss:domain:datasources:4.0}boolean-presenceType" minOccurs="0"/&gt;
+ * &lt;element name="capacity" type="{urn:jboss:domain:datasources:4.0}capacityType" minOccurs="0"/&gt;
+ * &lt;element name="connection-listener" type="{urn:jboss:domain:datasources:4.0}extensionType" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -84,7 +84,7 @@ public class PoolType
 	 */
 	public void setMinPoolSize(BigInteger value)
 	{
-		this.minPoolSize = value;
+		minPoolSize = value;
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class PoolType
 	 */
 	public void setInitialPoolSize(BigInteger value)
 	{
-		this.initialPoolSize = value;
+		initialPoolSize = value;
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class PoolType
 	 */
 	public void setMaxPoolSize(BigInteger value)
 	{
-		this.maxPoolSize = value;
+		maxPoolSize = value;
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class PoolType
 	 */
 	public void setPrefill(Boolean value)
 	{
-		this.prefill = value;
+		prefill = value;
 	}
 
 	/**
@@ -176,7 +176,7 @@ public class PoolType
 	 */
 	public void setFair(Boolean value)
 	{
-		this.fair = value;
+		fair = value;
 	}
 
 	/**
@@ -199,7 +199,7 @@ public class PoolType
 	 */
 	public void setUseStrictMin(Boolean value)
 	{
-		this.useStrictMin = value;
+		useStrictMin = value;
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class PoolType
 	 */
 	public void setFlushStrategy(String value)
 	{
-		this.flushStrategy = value;
+		flushStrategy = value;
 	}
 
 	/**
@@ -245,7 +245,7 @@ public class PoolType
 	 */
 	public void setAllowMultipleUsers(BooleanPresenceType value)
 	{
-		this.allowMultipleUsers = value;
+		allowMultipleUsers = value;
 	}
 
 	/**
@@ -268,7 +268,7 @@ public class PoolType
 	 */
 	public void setCapacity(CapacityType value)
 	{
-		this.capacity = value;
+		capacity = value;
 	}
 
 	/**
@@ -291,7 +291,7 @@ public class PoolType
 	 */
 	public void setConnectionListener(ExtensionType value)
 	{
-		this.connectionListener = value;
+		connectionListener = value;
 	}
 
 }

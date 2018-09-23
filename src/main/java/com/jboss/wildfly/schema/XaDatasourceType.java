@@ -15,31 +15,31 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
  * <p>Java class for xa-datasourceType complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="xa-datasourceType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="xa-datasource-property" type="{urn:jboss:domain:datasources:4.0}xa-datasource-propertyType" maxOccurs="unbounded"/>
- *         &lt;element name="xa-datasource-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="driver" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="url-delimiter" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="url-selector-strategy-class-name" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
- *         &lt;element name="new-connection-sql" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="transaction-isolation" type="{urn:jboss:domain:datasources:4.0}transaction-isolationType" minOccurs="0"/>
- *         &lt;element name="xa-pool" type="{urn:jboss:domain:datasources:4.0}xa-poolType" minOccurs="0"/>
- *         &lt;element name="security" type="{urn:jboss:domain:datasources:4.0}dsSecurityType" minOccurs="0"/>
- *         &lt;element name="validation" type="{urn:jboss:domain:datasources:4.0}validationType" minOccurs="0"/>
- *         &lt;element name="timeout" type="{urn:jboss:domain:datasources:4.0}timeoutType" minOccurs="0"/>
- *         &lt;element name="statement" type="{urn:jboss:domain:datasources:4.0}statementType" minOccurs="0"/>
- *         &lt;element name="recovery" type="{urn:jboss:domain:datasources:4.0}recoverType" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attGroup ref="{urn:jboss:domain:datasources:4.0}common-datasourceAttributes"/>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>
+ * &lt;pre&gt;
+ * &lt;complexType name="xa-datasourceType"&gt;
+ * &lt;complexContent&gt;
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ * &lt;sequence&gt;
+ * &lt;element name="xa-datasource-property" type="{urn:jboss:domain:datasources:4.0}xa-datasource-propertyType" maxOccurs="unbounded"/&gt;
+ * &lt;element name="xa-datasource-class" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="driver" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="url-delimiter" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="url-selector-strategy-class-name" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/&gt;
+ * &lt;element name="new-connection-sql" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ * &lt;element name="transaction-isolation" type="{urn:jboss:domain:datasources:4.0}transaction-isolationType" minOccurs="0"/&gt;
+ * &lt;element name="xa-pool" type="{urn:jboss:domain:datasources:4.0}xa-poolType" minOccurs="0"/&gt;
+ * &lt;element name="security" type="{urn:jboss:domain:datasources:4.0}dsSecurityType" minOccurs="0"/&gt;
+ * &lt;element name="validation" type="{urn:jboss:domain:datasources:4.0}validationType" minOccurs="0"/&gt;
+ * &lt;element name="timeout" type="{urn:jboss:domain:datasources:4.0}timeoutType" minOccurs="0"/&gt;
+ * &lt;element name="statement" type="{urn:jboss:domain:datasources:4.0}statementType" minOccurs="0"/&gt;
+ * &lt;element name="recovery" type="{urn:jboss:domain:datasources:4.0}recoverType" minOccurs="0"/&gt;
+ * &lt;/sequence&gt;
+ * &lt;attGroup ref="{urn:jboss:domain:datasources:4.0}common-datasourceAttributes"/&gt;
+ * &lt;/restriction&gt;
+ * &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * &lt;/pre&gt;
  */
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,
@@ -50,46 +50,118 @@ public class XaDatasourceType
 		implements IDataSource
 {
 
+	/**
+	 * Field xaDatasourceProperty
+	 */
 	@JsonProperty(value = "xa-datasource-property")
 	private List<XaDatasourcePropertyType> xaDatasourceProperty;
+	/**
+	 * Field xaDatasourceClass
+	 */
 	@JsonProperty(value = "xa-datasource-class")
 	private String xaDatasourceClass;
+	/**
+	 * Field driver
+	 */
 	private String driver;
+	/**
+	 * Field urlDelimiter
+	 */
 	@JsonProperty(value = "url-delimiter")
 	private String urlDelimiter;
+	/**
+	 * Field urlSelectorStrategyClassName
+	 */
 	@JsonProperty(value = "url-selector-strategy-class-name")
 	private String urlSelectorStrategyClassName;
+	/**
+	 * Field newConnectionSql
+	 */
 	@JsonProperty(value = "new-connection-sql")
 	private String newConnectionSql;
+	/**
+	 * Field transactionIsolation
+	 */
 	@JsonProperty(value = "transaction-isolation")
 	private TransactionIsolationType transactionIsolation;
+	/**
+	 * Field xaPool
+	 */
 	@JsonProperty(value = "xa-pool")
 	private XaPoolType xaPool;
+	/**
+	 * Field security
+	 */
 	private DsSecurityType security;
+	/**
+	 * Field validation
+	 */
 	private ValidationType validation;
+	/**
+	 * Field timeout
+	 */
 	private TimeoutType timeout;
+	/**
+	 * Field statement
+	 */
 	private StatementType statement;
+	/**
+	 * Field recovery
+	 */
 	private RecoverType recovery;
+	/**
+	 * Field jndiName
+	 */
 	@JsonProperty(value = "jndi-name")
 	private String jndiName;
+	/**
+	 * Field poolName
+	 */
 	@JsonProperty(value = "pool-name")
 	private String poolName;
+	/**
+	 * Field enabled
+	 */
 	@JsonProperty(value = "enabled")
 	private Boolean enabled;
+	/**
+	 * Field useJavaContext
+	 */
 	@JsonProperty(value = "use-java-context")
 	private Boolean useJavaContext;
+	/**
+	 * Field spy
+	 */
 	@JsonProperty(value = "spy")
 	private Boolean spy;
+	/**
+	 * Field useCcm
+	 */
 	@JsonProperty(value = "use-ccm")
 	private Boolean useCcm;
+	/**
+	 * Field connectable
+	 */
 	@JsonProperty(value = "connectable")
 	private Boolean connectable;
+	/**
+	 * Field tracking
+	 */
 	@JsonProperty(value = "tracking")
 	private Boolean tracking;
+	/**
+	 * Field statisticsEnabled
+	 */
 	@JsonProperty(value = "statistics-enabled")
 	private Boolean statisticsEnabled;
+	/**
+	 * Field mcp
+	 */
 	@JsonProperty(value = "mcp")
 	private String mcp;
+	/**
+	 * Field enlistmentTrace
+	 */
 	@JsonProperty(value = "enlistment-trace")
 	private Boolean enlistmentTrace;
 
@@ -119,7 +191,7 @@ public class XaDatasourceType
 		{
 			xaDatasourceProperty = new ArrayList<>();
 		}
-		return this.xaDatasourceProperty;
+		return xaDatasourceProperty;
 	}
 
 	/**
@@ -142,7 +214,7 @@ public class XaDatasourceType
 	 */
 	public void setXaDatasourceClass(String value)
 	{
-		this.xaDatasourceClass = value;
+		xaDatasourceClass = value;
 	}
 
 	/**
@@ -165,7 +237,7 @@ public class XaDatasourceType
 	 */
 	public void setDriver(String value)
 	{
-		this.driver = value;
+		driver = value;
 	}
 
 	/**
@@ -188,7 +260,7 @@ public class XaDatasourceType
 	 */
 	public void setUrlDelimiter(String value)
 	{
-		this.urlDelimiter = value;
+		urlDelimiter = value;
 	}
 
 	/**
@@ -211,7 +283,7 @@ public class XaDatasourceType
 	 */
 	public void setUrlSelectorStrategyClassName(String value)
 	{
-		this.urlSelectorStrategyClassName = value;
+		urlSelectorStrategyClassName = value;
 	}
 
 	/**
@@ -234,7 +306,7 @@ public class XaDatasourceType
 	 */
 	public void setNewConnectionSql(String value)
 	{
-		this.newConnectionSql = value;
+		newConnectionSql = value;
 	}
 
 	/**
@@ -257,7 +329,7 @@ public class XaDatasourceType
 	 */
 	public void setTransactionIsolation(TransactionIsolationType value)
 	{
-		this.transactionIsolation = value;
+		transactionIsolation = value;
 	}
 
 	/**
@@ -280,7 +352,7 @@ public class XaDatasourceType
 	 */
 	public void setXaPool(XaPoolType value)
 	{
-		this.xaPool = value;
+		xaPool = value;
 	}
 
 	/**
@@ -303,7 +375,7 @@ public class XaDatasourceType
 	 */
 	public void setSecurity(DsSecurityType value)
 	{
-		this.security = value;
+		security = value;
 	}
 
 	/**
@@ -326,7 +398,7 @@ public class XaDatasourceType
 	 */
 	public void setValidation(ValidationType value)
 	{
-		this.validation = value;
+		validation = value;
 	}
 
 	/**
@@ -349,7 +421,7 @@ public class XaDatasourceType
 	 */
 	public void setTimeout(TimeoutType value)
 	{
-		this.timeout = value;
+		timeout = value;
 	}
 
 	/**
@@ -372,7 +444,7 @@ public class XaDatasourceType
 	 */
 	public void setStatement(StatementType value)
 	{
-		this.statement = value;
+		statement = value;
 	}
 
 	/**
@@ -395,7 +467,7 @@ public class XaDatasourceType
 	 */
 	public void setRecovery(RecoverType value)
 	{
-		this.recovery = value;
+		recovery = value;
 	}
 
 	/**
@@ -419,7 +491,7 @@ public class XaDatasourceType
 	 */
 	public void setJndiName(String value)
 	{
-		this.jndiName = value;
+		jndiName = value;
 	}
 
 	/**
@@ -442,7 +514,7 @@ public class XaDatasourceType
 	 */
 	public void setPoolName(String value)
 	{
-		this.poolName = value;
+		poolName = value;
 	}
 
 	/**
@@ -472,7 +544,7 @@ public class XaDatasourceType
 	 */
 	public void setEnabled(Boolean value)
 	{
-		this.enabled = value;
+		enabled = value;
 	}
 
 	/**
@@ -502,7 +574,7 @@ public class XaDatasourceType
 	 */
 	public void setUseJavaContext(Boolean value)
 	{
-		this.useJavaContext = value;
+		useJavaContext = value;
 	}
 
 	/**
@@ -532,7 +604,7 @@ public class XaDatasourceType
 	 */
 	public void setSpy(Boolean value)
 	{
-		this.spy = value;
+		spy = value;
 	}
 
 	/**
@@ -562,7 +634,7 @@ public class XaDatasourceType
 	 */
 	public void setUseCcm(Boolean value)
 	{
-		this.useCcm = value;
+		useCcm = value;
 	}
 
 	/**
@@ -592,7 +664,7 @@ public class XaDatasourceType
 	 */
 	public void setConnectable(Boolean value)
 	{
-		this.connectable = value;
+		connectable = value;
 	}
 
 	/**
@@ -615,7 +687,7 @@ public class XaDatasourceType
 	 */
 	public void setTracking(Boolean value)
 	{
-		this.tracking = value;
+		tracking = value;
 	}
 
 	/**
@@ -645,7 +717,7 @@ public class XaDatasourceType
 	 */
 	public void setStatisticsEnabled(Boolean value)
 	{
-		this.statisticsEnabled = value;
+		statisticsEnabled = value;
 	}
 
 	/**
@@ -668,7 +740,7 @@ public class XaDatasourceType
 	 */
 	public void setMcp(String value)
 	{
-		this.mcp = value;
+		mcp = value;
 	}
 
 	/**
@@ -691,7 +763,7 @@ public class XaDatasourceType
 	 */
 	public void setEnlistmentTrace(Boolean value)
 	{
-		this.enlistmentTrace = value;
+		enlistmentTrace = value;
 	}
 
 }

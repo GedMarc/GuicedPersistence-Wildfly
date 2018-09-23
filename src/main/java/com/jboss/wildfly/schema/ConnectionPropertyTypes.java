@@ -2,6 +2,9 @@ package com.jboss.wildfly.schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Designates a any connection property type
+ */
 public class ConnectionPropertyTypes
 {
 
@@ -29,7 +32,7 @@ public class ConnectionPropertyTypes
 	 */
 	public void setContent(String value)
 	{
-		this.content = value;
+		content = value;
 	}
 
 	/**
@@ -52,6 +55,6 @@ public class ConnectionPropertyTypes
 	 */
 	public void setName(String value)
 	{
-		this.name = value;
+		name = value;
 	}
 }
