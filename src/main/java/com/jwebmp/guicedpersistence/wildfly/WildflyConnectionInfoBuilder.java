@@ -3,6 +3,7 @@ package com.jwebmp.guicedpersistence.wildfly;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jboss.wildfly.schema.*;
+import com.jwebmp.guicedinjection.GuiceContext;
 import com.jwebmp.guicedpersistence.db.ConnectionBaseInfo;
 import com.jwebmp.guicedpersistence.db.exceptions.NoConnectionInfoException;
 import com.jwebmp.guicedpersistence.services.PropertiesConnectionInfoReader;
@@ -31,10 +32,6 @@ public class WildflyConnectionInfoBuilder
 	 * The log file
 	 */
 	private static final Logger log = LogFactory.getLog("WildflyConnectionInfoReader");
-	/**
-	 * The driver registrations
-	 */
-	private static final ServiceLoader<IWildflyDriverRegistration> driverRegistrations = ServiceLoader.load(IWildflyDriverRegistration.class);
 	/**
 	 * The standalone file to read from the system property jboss config - can be different to what is actually being used in wildfly.
 	 */
@@ -266,7 +263,9 @@ public class WildflyConnectionInfoBuilder
 	private void getConnectionBaseInfo(SubsystemType ds, DatasourceType xa, String jndiMapping, PersistenceUnit persistenceUnit, ConnectionBaseInfo cbi)
 	{
 		boolean found = false;
-		for (IWildflyDriverRegistration driverRegistration : WildflyConnectionInfoBuilder.driverRegistrations)
+		for (IWildflyDriverRegistration driverRegistration : GuiceContext.instance()
+		                                                                 .getLoader(IWildflyDriverRegistration.class, true, ServiceLoader.load(
+				                                                                 IWildflyDriverRegistration.class)))
 		{
 			Matcher matched = driverRegistration.driverPattern()
 			                                    .matcher(xa.getConnectionUrl());

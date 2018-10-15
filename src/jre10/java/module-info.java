@@ -28,4 +28,5 @@ module com.jwebmp.guicedpersistence.wildfly {
 
 	requires com.jwebmp.guicedpersistence.readers.hibernateproperties;
 	requires com.jwebmp.guicedpersistence.readers.systemproperties;
+	requires com.jwebmp.guicedinjection;
 }
