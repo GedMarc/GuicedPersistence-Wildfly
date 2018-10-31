@@ -14,10 +14,19 @@ module com.jwebmp.guicedpersistence.wildfly {
 	provides IWildflyDriverRegistration with SQLServerWildflyDriver, DB2WildflyDriver;
 	provides PropertiesConnectionInfoReader with WildflyConnectionInfoBuilder;
 
-	requires transitive com.jwebmp.guicedpersistence;
+	requires com.jwebmp.guicedpersistence;
+	requires com.fasterxml.jackson.annotation;
 
-	requires transitive org.apache.commons.io;
+	requires com.jwebmp.logmaster;
+	requires java.logging;
 
-	requires transitive com.jwebmp.guicedpersistence.readers.hibernateproperties;
-	requires transitive com.jwebmp.guicedpersistence.readers.systemproperties;
+	requires com.google.common;
+
+	requires org.json;
+	requires com.fasterxml.jackson.databind;
+	requires org.apache.commons.io;
+
+	requires com.jwebmp.guicedpersistence.readers.hibernateproperties;
+	requires com.jwebmp.guicedpersistence.readers.systemproperties;
+	requires com.jwebmp.guicedinjection;
 }
