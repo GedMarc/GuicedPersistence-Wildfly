@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jboss.wildfly.schema.*;
 import com.jwebmp.guicedinjection.GuiceContext;
 import com.jwebmp.guicedpersistence.db.ConnectionBaseInfo;
+import com.jwebmp.guicedpersistence.db.exceptions.InvalidConnectionInfoException;
 import com.jwebmp.guicedpersistence.db.exceptions.NoConnectionInfoException;
 import com.jwebmp.guicedpersistence.services.PropertiesConnectionInfoReader;
 import com.jwebmp.guicedpersistence.wildfly.readers.IWildflyDriverRegistration;
@@ -84,15 +85,21 @@ public class WildflyConnectionInfoBuilder
 	public ConnectionBaseInfo populateConnectionBaseInfo(PersistenceUnit unit, Properties filteredProperties, ConnectionBaseInfo cbi)
 	{
 		SubsystemType type = WildflyConnectionInfoBuilder.getDatasourceSubsystem();
-
-		IDataSource ds = findDatasource(type, unit.getJtaDataSource());
-		if (XaDatasourceType.class.isAssignableFrom(ds.getClass()))
+		try
 		{
-			getConnectionBaseInfo(type, (XaDatasourceType) ds, unit.getJtaDataSource(), cbi);
-		}
-		else
+			IDataSource ds = findDatasource(type, unit.getJtaDataSource());
+			if (XaDatasourceType.class.isAssignableFrom(ds.getClass()))
+			{
+				getConnectionBaseInfo(type, (XaDatasourceType) ds, unit.getJtaDataSource(), cbi);
+			}
+			else
+			{
+				getConnectionBaseInfo(type, (DatasourceType) ds, unit.getJtaDataSource(), unit, cbi);
+			}
+		}catch(NoConnectionInfoException nfi)
 		{
-			getConnectionBaseInfo(type, (DatasourceType) ds, unit.getJtaDataSource(), unit, cbi);
+			log.log(Level.WARNING, "Unable to find connection information with the provided JTA name [" + unit.getJtaDataSource() + "]. " +
+			                       "No properties will be loaded from standalone for this entry", nfi);
 		}
 		return cbi;
 	}
@@ -278,7 +285,7 @@ public class WildflyConnectionInfoBuilder
 		}
 		if (!found)
 		{
-			throw new NoConnectionInfoException("Unable to find a valid driver registration using a pattern for " + jndiMapping);
+			throw new InvalidConnectionInfoException("Unable to find a valid driver registration using a pattern for " + jndiMapping);
 		}
 
 		cbi.setXa(false);
@@ -330,7 +337,7 @@ public class WildflyConnectionInfoBuilder
 				return driverType.getXaDatasourceClass();
 			}
 		}
-		throw new NoConnectionInfoException("Unable to determine the XA Driver from the given name " + driver);
+		throw new InvalidConnectionInfoException("Unable to determine the XA Driver from the given name " + driver);
 	}
 
 	/**
