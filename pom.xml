@@ -77,9 +77,11 @@
         </dependency>
 
         <dependency>
-            <groupId>commons-io</groupId>
+            <groupId>com.jwebmp</groupId>
             <artifactId>commons-io</artifactId>
             <type>jar</type>
+			<version>${project.version}</version>
+            <classifier>${jwebmp.runtime.classifier}</classifier>
         </dependency>
 
         <dependency>
