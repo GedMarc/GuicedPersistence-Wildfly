@@ -1,24 +1,14 @@
-
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
-import com.jwebmp.guicedpersistence.services.IPropertiesConnectionInfoReader;
-import com.jwebmp.guicedpersistence.wildfly.WildflyConnectionInfoBuilderI;
-import com.jwebmp.guicedpersistence.wildfly.implementations.WildflyModuleExclusions;
-import com.jwebmp.guicedpersistence.wildfly.readers.DB2WildflyDriver;
-import com.jwebmp.guicedpersistence.wildfly.readers.IWildflyDriverRegistration;
-import com.jwebmp.guicedpersistence.wildfly.readers.SQLServerWildflyDriver;
-
 module com.jwebmp.guicedpersistence.wildfly {
 
 	exports com.jwebmp.guicedpersistence.wildfly;
 
 	uses com.jwebmp.guicedpersistence.wildfly.readers.IWildflyDriverRegistration;
 
-	provides IWildflyDriverRegistration with SQLServerWildflyDriver, DB2WildflyDriver;
-	provides IPropertiesConnectionInfoReader with WildflyConnectionInfoBuilderI;
+	provides com.jwebmp.guicedpersistence.wildfly.readers.IWildflyDriverRegistration with com.jwebmp.guicedpersistence.wildfly.readers.SQLServerWildflyDriver, com.jwebmp.guicedpersistence.wildfly.readers.DB2WildflyDriver;
+	provides com.jwebmp.guicedpersistence.services.IPropertiesConnectionInfoReader with com.jwebmp.guicedpersistence.wildfly.WildflyConnectionInfoBuilderI;
 
-	provides IGuiceScanJarExclusions with WildflyModuleExclusions;
-	provides IGuiceScanModuleExclusions with WildflyModuleExclusions;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.guicedpersistence.wildfly.implementations.WildflyModuleExclusions;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.guicedpersistence.wildfly.implementations.WildflyModuleExclusions;
 
 	requires com.jwebmp.guicedpersistence;
 	requires com.fasterxml.jackson.annotation;
