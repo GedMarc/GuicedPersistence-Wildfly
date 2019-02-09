@@ -26,7 +26,7 @@ import java.util.regex.Matcher;
 /**
  * The wildfly connection details information builder for Guiced Persistence
  */
-public class WildflyConnectionInfoBuilderI
+public class WildflyConnectionInfoBuilder
 		implements IPropertiesConnectionInfoReader
 {
 	/**
@@ -43,30 +43,30 @@ public class WildflyConnectionInfoBuilderI
 	private static SubsystemType subsystemType = null;
 
 	/**
-	 * Method getStandaloneFileName returns the standaloneFileName of this WildflyConnectionInfoBuilderI object.
+	 * Method getStandaloneFileName returns the standaloneFileName of this WildflyConnectionInfoBuilder object.
 	 * <p>
 	 * The standalone file to read from the system property jboss config - can be different to what is actually being used in wildfly.
 	 *
-	 * @return the standaloneFileName (type String) of this WildflyConnectionInfoBuilderI object.
+	 * @return the standaloneFileName (type String) of this WildflyConnectionInfoBuilder object.
 	 */
 	@SuppressWarnings("unused")
 	public static String getStandaloneFileName()
 	{
-		return WildflyConnectionInfoBuilderI.standaloneFileName;
+		return WildflyConnectionInfoBuilder.standaloneFileName;
 	}
 
 	/**
-	 * Method setStandaloneFileName sets the standaloneFileName of this WildflyConnectionInfoBuilderI object.
+	 * Method setStandaloneFileName sets the standaloneFileName of this WildflyConnectionInfoBuilder object.
 	 * <p>
 	 * The standalone file to read from the system property jboss config - can be different to what is actually being used in wildfly.
 	 *
 	 * @param standaloneFileName
-	 * 		the standaloneFileName of this WildflyConnectionInfoBuilderI object.
+	 * 		the standaloneFileName of this WildflyConnectionInfoBuilder object.
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public static void setStandaloneFileName(String standaloneFileName)
 	{
-		WildflyConnectionInfoBuilderI.standaloneFileName = standaloneFileName;
+		WildflyConnectionInfoBuilder.standaloneFileName = standaloneFileName;
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class WildflyConnectionInfoBuilderI
 	@Override
 	public ConnectionBaseInfo populateConnectionBaseInfo(PersistenceUnit unit, Properties filteredProperties, ConnectionBaseInfo cbi)
 	{
-		SubsystemType type = WildflyConnectionInfoBuilderI.getDatasourceSubsystem();
+		SubsystemType type = WildflyConnectionInfoBuilder.getDatasourceSubsystem();
 		try
 		{
 			IDataSource ds = findDatasource(type, unit.getJtaDataSource());
@@ -96,7 +96,8 @@ public class WildflyConnectionInfoBuilderI
 			{
 				getConnectionBaseInfo(type, (DatasourceType) ds, unit.getJtaDataSource(), unit, cbi);
 			}
-		}catch(NoConnectionInfoException nfi)
+		}
+		catch (NoConnectionInfoException nfi)
 		{
 			log.log(Level.WARNING, "Unable to find connection information with the provided JTA name [" + unit.getJtaDataSource() + "]. " +
 			                       "No properties will be loaded from standalone for this entry", nfi);
@@ -105,11 +106,11 @@ public class WildflyConnectionInfoBuilderI
 	}
 
 	/**
-	 * Method getDatasourceSubsystem returns the datasourceSubsystem of this WildflyConnectionInfoBuilderI object.
+	 * Method getDatasourceSubsystem returns the datasourceSubsystem of this WildflyConnectionInfoBuilder object.
 	 * <p>
 	 * Returns the datasource subsystem type from the specified standalone file
 	 *
-	 * @return the datasourceSubsystem (type SubsystemType) of this WildflyConnectionInfoBuilderI object.
+	 * @return the datasourceSubsystem (type SubsystemType) of this WildflyConnectionInfoBuilder object.
 	 */
 	private static SubsystemType getDatasourceSubsystem()
 	{
@@ -118,13 +119,13 @@ public class WildflyConnectionInfoBuilderI
 		{
 			throw new NoConnectionInfoException("Unable to find the server configuration directory. Set system property jboss.server.config.dir");
 		}
-		File standaloneFile = new File(jbossHome + "/" + WildflyConnectionInfoBuilderI.standaloneFileName);
+		File standaloneFile = new File(jbossHome + "/" + WildflyConnectionInfoBuilder.standaloneFileName);
 		if (!standaloneFile.exists())
 		{
-			throw new NoConnectionInfoException("Unable to find the server configuration file. Looked in " + jbossHome + "/" + WildflyConnectionInfoBuilderI.standaloneFileName);
+			throw new NoConnectionInfoException("Unable to find the server configuration file. Looked in " + jbossHome + "/" + WildflyConnectionInfoBuilder.standaloneFileName);
 		}
 
-		if (WildflyConnectionInfoBuilderI.subsystemType == null)
+		if (WildflyConnectionInfoBuilder.subsystemType == null)
 		{
 			try
 			{
@@ -138,15 +139,15 @@ public class WildflyConnectionInfoBuilderI
 				ObjectMapper om = new ObjectMapper();
 				om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 				WildflyDatasourceContainer container = om.readValue(json, WildflyDatasourceContainer.class);
-				WildflyConnectionInfoBuilderI.subsystemType = container.getSubsystem();
+				WildflyConnectionInfoBuilder.subsystemType = container.getSubsystem();
 			}
 			catch (Exception e)
 			{
-				WildflyConnectionInfoBuilderI.log.log(Level.SEVERE, "Unable to read the standalone file configured in " + jbossHome
-				                                                    + "\nPlease make sure to set the jboss.server.config.dir property if running standalone.", e);
+				WildflyConnectionInfoBuilder.log.log(Level.SEVERE, "Unable to read the standalone file configured in " + jbossHome
+				                                                   + "\nPlease make sure to set the jboss.server.config.dir property if running standalone.", e);
 			}
 		}
-		return WildflyConnectionInfoBuilderI.subsystemType;
+		return WildflyConnectionInfoBuilder.subsystemType;
 	}
 
 	/**
