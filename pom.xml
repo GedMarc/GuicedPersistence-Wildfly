@@ -59,6 +59,10 @@
         </dependency>
 
         <dependency>
+            <groupId>com.jwebmp.thirdparty</groupId>
+            <artifactId>json</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.jwebmp.jpms.commons</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
@@ -78,6 +82,12 @@
             <groupId>com.jwebmp.thirdparty</groupId>
             <artifactId>javax.transaction</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.jwebmp.thirdparty</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+
 
     </dependencies>
 
