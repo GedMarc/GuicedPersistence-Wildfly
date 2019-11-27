@@ -1,9 +1,9 @@
 package com.jwebmp.guicedpersistence.wildfly.readers;
 
 import com.google.common.base.Strings;
+import com.guicedee.guicedpersistence.db.ConnectionBaseInfo;
 import com.jboss.wildfly.schema.DatasourceType;
 import com.jboss.wildfly.schema.SubsystemType;
-import com.jwebmp.guicedpersistence.db.ConnectionBaseInfo;
 import com.oracle.jaxb21.PersistenceUnit;
 
 import java.util.regex.Matcher;

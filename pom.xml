@@ -5,11 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.jwebmp.jpms.guicedee.persistence</groupId>
-        <artifactId>persistence-parent</artifactId>
+        <groupId>com.guicedee</groupId>
+        <artifactId>guicedee-projects</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
+    <groupId>com.guicedee.persistence</groupId>
     <artifactId>guiced-persistence-wildfly</artifactId>
     <packaging>jar</packaging>
 
@@ -20,74 +21,64 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.jwebmp.jpms.guicedee.persistence</groupId>
-            <artifactId>guiced-persistence-hibernateproperties-reader</artifactId><type>jar</type>
-            </dependency>
+            <groupId>com.guicedee.persistence</groupId>
+            <artifactId>guiced-persistence-hibernateproperties-reader</artifactId>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
-            <groupId>com.jwebmp.jpms.guicedee.persistence</groupId>
-            <artifactId>guiced-persistence-systemproperties-reader</artifactId><type>jar</type>
-            </dependency>
-        <dependency>
-            <groupId>com.jwebmp.jpms.thirdparty</groupId>
-            <artifactId>hibernate-core</artifactId><type>jar</type>
-            </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId><type>jar</type>
-            </dependency>
+            <groupId>com.guicedee.persistence</groupId>
+            <artifactId>guiced-persistence-systemproperties-reader</artifactId>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId><type>jar</type>
-            </dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId><type>jar</type>
-            </dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>json</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>commons-io</artifactId>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId><type>jar</type>
-            </dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>test</scope><type>jar</type>
-            </dependency>
-
-        <dependency>
-            <groupId>com.jwebmp.jpms.thirdparty</groupId>
-            <artifactId>json</artifactId><type>jar</type>
-            </dependency>
-        <dependency>
-            <groupId>com.jwebmp.jpms.thirdparty</groupId>
-            <artifactId>commons-io</artifactId><type>jar</type>
-            </dependency>
-
-        <dependency>
-            <groupId>com.jwebmp.jpms.thirdparty</groupId>
-            <artifactId>jakarta.persistence-api</artifactId><type>jar</type>
-            </dependency>
-
-        <dependency>
-            <groupId>com.jwebmp.jpms.guicedee.persistence</groupId>
+            <groupId>com.guicedee.persistence</groupId>
             <artifactId>guiced-persistence-btm</artifactId>
-            <scope>test</scope><type>jar</type>
-            </dependency>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
-            <groupId>com.jwebmp.jpms.thirdparty</groupId>
-            <artifactId>javax.transaction</artifactId><type>jar</type>
-            </dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>javax.transaction</artifactId>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
-            <groupId>com.jwebmp.jpms.thirdparty</groupId>
-            <artifactId>jakarta.validation-api</artifactId><type>jar</type>
-            </dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <type>jar</type>
+        </dependency>
 
+        <dependency>
+            <groupId>com.guicedee.persistence</groupId>
+            <artifactId>guiced-persistence</artifactId>
+            <type>jar</type>
+        </dependency>
 
     </dependencies>
 
