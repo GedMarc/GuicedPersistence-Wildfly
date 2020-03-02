@@ -17,9 +17,6 @@ module com.jwebmp.guicedpersistence.wildfly {
 	provides IWildflyDriverRegistration with SQLServerWildflyDriver, DB2WildflyDriver;
 	provides PropertiesConnectionInfoReader with WildflyConnectionInfoBuilder;
 
-	provides IGuiceScanJarExclusions with WildflyModuleExclusions;
-	provides IGuiceScanModuleExclusions with WildflyModuleExclusions;
-
 	requires com.jwebmp.guicedpersistence;
 	requires com.fasterxml.jackson.annotation;
 

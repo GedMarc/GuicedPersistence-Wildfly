@@ -7,9 +7,6 @@ module com.jwebmp.guicedpersistence.wildfly {
 	provides com.jwebmp.guicedpersistence.wildfly.readers.IWildflyDriverRegistration with com.jwebmp.guicedpersistence.wildfly.readers.SQLServerWildflyDriver, com.jwebmp.guicedpersistence.wildfly.readers.DB2WildflyDriver;
 	provides com.guicedee.guicedpersistence.services.IPropertiesConnectionInfoReader with com.jwebmp.guicedpersistence.wildfly.WildflyConnectionInfoBuilder;
 
-	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.guicedpersistence.wildfly.implementations.WildflyModuleExclusions;
-	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.guicedpersistence.wildfly.implementations.WildflyModuleExclusions;
-
 	requires com.fasterxml.jackson.annotation;
 
 	requires java.logging;
