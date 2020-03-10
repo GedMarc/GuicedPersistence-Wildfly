@@ -1,5 +1,4 @@
 
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
 import com.jwebmp.guicedpersistence.services.PropertiesConnectionInfoReader;
 import com.jwebmp.guicedpersistence.wildfly.WildflyConnectionInfoBuilder;
 import com.jwebmp.guicedpersistence.wildfly.implementations.WildflyModuleExclusions;
