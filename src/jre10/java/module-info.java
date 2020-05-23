@@ -1,4 +1,3 @@
-
 import com.jwebmp.guicedpersistence.services.PropertiesConnectionInfoReader;
 import com.jwebmp.guicedpersistence.wildfly.WildflyConnectionInfoBuilder;
 import com.jwebmp.guicedpersistence.wildfly.implementations.WildflyModuleExclusions;
@@ -27,8 +26,7 @@ module com.jwebmp.guicedpersistence.wildfly {
 	requires com.fasterxml.jackson.databind;
 	requires org.apache.commons.io;
 
-	requires com.jwebmp.guicedpersistence.readers.hibernateproperties;
-	requires com.jwebmp.guicedpersistence.readers.systemproperties;
+	requires com.jwebmp.guicedpersistence;
 	requires com.jwebmp.guicedinjection;
 	requires java.validation;
 }

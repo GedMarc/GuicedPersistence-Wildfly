@@ -20,23 +20,6 @@
     <url>https://github.com/GedMarc/GuicedPersistence-Wildfly</url>
 
     <dependencies>
-        <dependency>
-            <groupId>com.guicedee.persistence</groupId>
-            <artifactId>guiced-persistence-hibernateproperties-reader</artifactId>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.guicedee.persistence</groupId>
-            <artifactId>guiced-persistence-systemproperties-reader</artifactId>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.guicedee.services</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <type>jar</type>
-        </dependency>
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
@@ -52,13 +35,6 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.guicedee.persistence</groupId>
-            <artifactId>guiced-persistence-btm</artifactId>
-            <scope>test</scope>
             <type>jar</type>
         </dependency>
 

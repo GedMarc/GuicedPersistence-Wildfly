@@ -14,11 +14,9 @@ module com.jwebmp.guicedpersistence.wildfly {
 	requires com.google.common;
 
 	requires org.json;
-	requires com.fasterxml.jackson.databind;
+
 	requires org.apache.commons.io;
 
-
-	requires java.validation;
 	requires com.guicedee.guicedpersistence;
-	requires com.guicedee.guicedinjection;
+
 }
