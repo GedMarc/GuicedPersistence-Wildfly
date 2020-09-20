@@ -24,36 +24,30 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>json</artifactId>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>commons-io</artifactId>
-            <type>jar</type>
         </dependency>
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
-            <type>jar</type>
         </dependency>
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>javax.transaction</artifactId>
-            <type>jar</type>
         </dependency>
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>jakarta.validation-api</artifactId>
-            <type>jar</type>
         </dependency>
 
         <dependency>
             <groupId>com.guicedee.persistence</groupId>
             <artifactId>guiced-persistence</artifactId>
-            <type>jar</type>
         </dependency>
 
     </dependencies>
