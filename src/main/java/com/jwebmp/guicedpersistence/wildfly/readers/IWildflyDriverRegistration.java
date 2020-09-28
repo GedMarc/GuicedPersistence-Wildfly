@@ -4,7 +4,7 @@ import com.guicedee.guicedpersistence.db.ConnectionBaseInfo;
 import com.jboss.wildfly.schema.DatasourceType;
 import com.jboss.wildfly.schema.SubsystemType;
 import com.jboss.wildfly.schema.TransactionIsolationType;
-import com.oracle.jaxb21.PersistenceUnit;
+import org.hibernate.jpa.boot.internal.ParsedPersistenceXmlDescriptor;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,7 +20,7 @@ public interface IWildflyDriverRegistration
 
 	Pattern driverPattern();
 
-	ConnectionBaseInfo fromConnectionString(Matcher matched, String connectionInfo, ConnectionBaseInfo connectionBaseInfo, PersistenceUnit persistenceUnit, SubsystemType ds, DatasourceType xa, String jndiMapping);
+	ConnectionBaseInfo fromConnectionString(Matcher matched, String connectionInfo, ConnectionBaseInfo connectionBaseInfo, ParsedPersistenceXmlDescriptor persistenceUnit, SubsystemType ds, DatasourceType xa, String jndiMapping);
 
 	/**
 	 * Converts wildfly transaction isolation's to btm

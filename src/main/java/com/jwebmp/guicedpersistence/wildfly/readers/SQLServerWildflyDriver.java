@@ -4,7 +4,7 @@ import com.google.common.base.Strings;
 import com.guicedee.guicedpersistence.db.ConnectionBaseInfo;
 import com.jboss.wildfly.schema.DatasourceType;
 import com.jboss.wildfly.schema.SubsystemType;
-import com.oracle.jaxb21.PersistenceUnit;
+import org.hibernate.jpa.boot.internal.ParsedPersistenceXmlDescriptor;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -69,7 +69,7 @@ public class SQLServerWildflyDriver
 	 * @return ConnectionBaseInfo
 	 */
 	@Override
-	public ConnectionBaseInfo fromConnectionString(Matcher sqlMatch, String connectionInfo, ConnectionBaseInfo cbi, PersistenceUnit persistenceUnit, SubsystemType ds, DatasourceType xa, String jndiMapping)
+	public ConnectionBaseInfo fromConnectionString(Matcher sqlMatch, String connectionInfo, ConnectionBaseInfo cbi, ParsedPersistenceXmlDescriptor persistenceUnit, SubsystemType ds, DatasourceType xa, String jndiMapping)
 	{
 		String serverName = sqlMatch.group(2);
 		String instanceName = sqlMatch.group(3);

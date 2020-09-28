@@ -12,8 +12,8 @@ import com.jboss.wildfly.schema.*;
 
 import com.jwebmp.guicedpersistence.wildfly.readers.IWildflyDriverRegistration;
 
-import com.oracle.jaxb21.PersistenceUnit;
 import org.apache.commons.io.FileUtils;
+import org.hibernate.jpa.boot.internal.ParsedPersistenceXmlDescriptor;
 import org.json.JSONObject;
 import org.json.XML;
 
@@ -84,19 +84,19 @@ public class WildflyConnectionInfoBuilder
 	 * @return ConnectionBaseInfo
 	 */
 	@Override
-	public ConnectionBaseInfo populateConnectionBaseInfo(PersistenceUnit unit, Properties filteredProperties, ConnectionBaseInfo cbi)
+	public ConnectionBaseInfo populateConnectionBaseInfo(ParsedPersistenceXmlDescriptor unit, Properties filteredProperties, ConnectionBaseInfo cbi)
 	{
 		SubsystemType type = WildflyConnectionInfoBuilder.getDatasourceSubsystem();
 		try
 		{
-			IDataSource ds = findDatasource(type, unit.getJtaDataSource());
+			IDataSource ds = findDatasource(type, unit.getJtaDataSource().toString());
 			if (XaDatasourceType.class.isAssignableFrom(ds.getClass()))
 			{
-				getConnectionBaseInfo(type, (XaDatasourceType) ds, unit.getJtaDataSource(), cbi);
+				getConnectionBaseInfo(type, (XaDatasourceType) ds, unit.getJtaDataSource().toString(), cbi);
 			}
 			else
 			{
-				getConnectionBaseInfo(type, (DatasourceType) ds, unit.getJtaDataSource(), unit, cbi);
+				getConnectionBaseInfo(type, (DatasourceType) ds, unit.getJtaDataSource().toString(), unit, cbi);
 			}
 		}
 		catch (NoConnectionInfoException nfi)
@@ -270,7 +270,7 @@ public class WildflyConnectionInfoBuilder
 	 * @param cbi
 	 * 		of type ConnectionBaseInfo
 	 */
-	private void getConnectionBaseInfo(SubsystemType ds, DatasourceType xa, String jndiMapping, PersistenceUnit persistenceUnit, ConnectionBaseInfo cbi)
+	private void getConnectionBaseInfo(SubsystemType ds, DatasourceType xa, String jndiMapping, ParsedPersistenceXmlDescriptor persistenceUnit, ConnectionBaseInfo cbi)
 	{
 		boolean found = false;
 		for (IWildflyDriverRegistration driverRegistration : GuiceContext.instance()
