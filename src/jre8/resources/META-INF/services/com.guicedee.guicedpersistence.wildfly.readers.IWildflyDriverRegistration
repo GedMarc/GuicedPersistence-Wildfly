@@ -1,2 +1,2 @@
-com.jwebmp.guicedpersistence.wildfly.readers.SQLServerWildflyDriver
-com.jwebmp.guicedpersistence.wildfly.readers.DB2WildflyDriver
+com.guicedee.guicedpersistence.wildfly.readers.SQLServerWildflyDriver
+com.guicedee.guicedpersistence.wildfly.readers.DB2WildflyDriver

@@ -1,4 +1,4 @@
-package com.jwebmp.guicedpersistence.wildfly;
+package com.guicedee.guicedpersistence.wildfly;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +10,7 @@ import com.guicedee.guicedpersistence.services.IPropertiesConnectionInfoReader;
 import com.guicedee.logger.LogFactory;
 import com.jboss.wildfly.schema.*;
 
-import com.jwebmp.guicedpersistence.wildfly.readers.IWildflyDriverRegistration;
+import com.guicedee.guicedpersistence.wildfly.readers.IWildflyDriverRegistration;
 
 import org.apache.commons.io.FileUtils;
 import org.hibernate.jpa.boot.internal.ParsedPersistenceXmlDescriptor;

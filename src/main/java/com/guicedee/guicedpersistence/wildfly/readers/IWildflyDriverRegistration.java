@@ -1,4 +1,4 @@
-package com.jwebmp.guicedpersistence.wildfly.readers;
+package com.guicedee.guicedpersistence.wildfly.readers;
 
 import com.guicedee.guicedpersistence.db.ConnectionBaseInfo;
 import com.jboss.wildfly.schema.DatasourceType;

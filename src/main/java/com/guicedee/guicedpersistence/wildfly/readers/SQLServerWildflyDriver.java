@@ -1,4 +1,4 @@
-package com.jwebmp.guicedpersistence.wildfly.readers;
+package com.guicedee.guicedpersistence.wildfly.readers;
 
 import com.google.common.base.Strings;
 import com.guicedee.guicedpersistence.db.ConnectionBaseInfo;

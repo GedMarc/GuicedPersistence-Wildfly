@@ -1,4 +1,4 @@
-package com.jwebmp.guicedpersistence.wildfly.implementations;
+package com.guicedee.guicedpersistence.wildfly.implementations;
 
 import com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions;
 
@@ -13,7 +13,7 @@ public class WildflyModuleExclusions
 	public @NotNull Set<String> excludeModules()
 	{
 		Set<String> strings = new HashSet<>();
-		strings.add("com.jwebmp.guicedpersistence.wildfly");
+		strings.add("com.guicedee.guicedpersistence.wildfly");
 		return strings;
 	}
 }
