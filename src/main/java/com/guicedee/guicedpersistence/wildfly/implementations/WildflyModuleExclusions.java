@@ -2,7 +2,7 @@ package com.guicedee.guicedpersistence.wildfly.implementations;
 
 import com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
