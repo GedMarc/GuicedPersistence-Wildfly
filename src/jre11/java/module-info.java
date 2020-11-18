@@ -12,4 +12,6 @@ module com.guicedee.guicedpersistence.wildfly {
 	requires org.apache.commons.io;
 	requires com.guicedee.guicedpersistence;
 
+	opens com.jboss.wildfly.schema to com.fasterxml.jackson.databind;
+
 }
