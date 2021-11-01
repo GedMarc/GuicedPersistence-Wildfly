@@ -13,7 +13,7 @@
     <groupId>com.guicedee.persistence</groupId>
     <artifactId>guiced-persistence-wildfly</artifactId>
     <packaging>jar</packaging>
-
+    <version>0.0.0_0-SNAPSHOT</version>
     <name>Guiced Persistence - Wildfly</name>
     <description>Reads the given standalone wildfly file to configure the ConnectionBaseInfo object.
     </description>
